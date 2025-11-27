@@ -15,14 +15,18 @@ int main() {
     printf(" %02X", ch);
     bytes++;
     checksum += ch;
-    if (bytes == BYTES_PER_LINE) {
+    if (bytes == BYTES_PER_LINE - 1) {
+      // 添加校验和
+      printf(" %02X", (checksum % 0x100));
       putchar('\n');
       bytes = 0;
+      checksum = 0;
     }
   }
 
-  // 添加校验和
-  putchar(checksum % 0x100);
+  if (bytes != BYTES_PER_LINE - 1) {
+    printf(" %02X", (checksum % 0x100));
+  }
 
   printf("\nHEX ENCODE END\n");
 
