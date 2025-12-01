@@ -1,0 +1,44 @@
+CompileFlags:
+  # 你想让 clangd 额外加的编译参数（在 compile_commands.json 基础上附加）
+  Add: [
+    "-Wall",
+    "-Wextra",
+    "-Wshadow",
+    "-Wconversion",
+    "-std=c11",
+  ]
+
+# 启用 clang-tidy 并设置常用规则
+Diagnostics:
+  ClangTidy:
+    Add: [
+      "readability-*",
+      "bugprone-*",
+      "performance-*",
+      "portability-*",
+      "modernize-*",
+    ]
+    Remove: [
+      "modernize-use-auto",   # 小项目里常常不需要
+    ]
+
+# 内联提示：显示参数名、返回值类型等
+InlayHints:
+  Enabled: Yes
+  ParameterNames: Yes
+  DeducedTypes: Yes
+  TypeHints: Yes
+
+# 索引设置：更快跳转定义 / 引用
+Index:
+  Background: Yes
+
+# 代码格式化：使用 clang-format（如果你有 .clang-format，它会自动跟随）
+Format:
+  Style: file
+
+# 更智能的补全：包括 snippet 形式的函数补全
+Completion:
+  AllScopes: Yes
+  Snippets: Yes
+  FilterAndSort: Yes

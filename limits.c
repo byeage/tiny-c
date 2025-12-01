@@ -21,7 +21,7 @@ int main() {
 
   printf("Long:\n");
   printf("\tSigned minimum: %ld\n", LONG_MIN);
-  printf("\tSigned minimax: %ld\n", LONG_MAX);
+  printf("\tSigned inimax: %ld\n", LONG_MAX);
   printf("\tUnSigned max: %lu\n", ULONG_MAX);
 
   printf("Long Long:\n");

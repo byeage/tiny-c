@@ -24,42 +24,35 @@ void line_out(int offset, int length, unsigned char *data) {
 }
 
 int main(int argc, char *argv[]) {
+  const int length = 16;
+  unsigned char buffer[length];
+  char *filename;
+  FILE *fp;
+  int ch, offset, index;
 
   if (argc < 2) {
     fprintf(stderr, "Format: dumpfile filename\n");
     exit(1);
   }
 
-  char *filename;
-  FILE *fp;
-
   filename = argv[1];
   fp = fopen(filename, "r");
-
   if (fp == NULL) {
     fprintf(stderr, "Unable to open file '%s'\n", filename);
     exit(1);
   }
 
-  const int length = 16;
-  char ch;
-  int index;
-  unsigned char buffer[16];
-  int offset;
   offset = 0;
   index = 0;
   while (!feof(fp)) {
     ch = fgetc(fp);
     if (ch == EOF) {
-      if (index != 0) {
+      if (index != 0)
         line_out(offset, index, buffer);
-      }
       break;
     }
-
     buffer[index] = ch;
     index++;
-
     if (index == length) {
       line_out(offset, length, buffer);
       offset += length;
@@ -67,5 +60,7 @@ int main(int argc, char *argv[]) {
     }
   }
 
-  return 0;
+  fclose(fp);
+
+  return (0);
 }

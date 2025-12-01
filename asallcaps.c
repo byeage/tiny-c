@@ -1,7 +1,7 @@
 #include <ctype.h>
 #include <stdio.h>
 
-int main(int argc, char *argv[]) {
+int main() {
 
   int ch;
   char upper;

@@ -7,6 +7,9 @@ int main() {
   for (int i = 0; i < 256; i++) {
     data[i] = i;
     printf("%02X", data[i]);
+    if ((i + 1) % 16 == 0) {
+      putchar('\n');
+    }
   }
 
   return 0;

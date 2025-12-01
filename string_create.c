@@ -27,3 +27,5 @@ void string_destroy(struct string *s) {
   s->value = NULL;
   s->length = 0;
 }
+
+int main() { return 0; }

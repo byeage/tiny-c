@@ -5,3 +5,6 @@
 !*.c
 !*.txt
 !.gitignore
+!.md
+!Makefile
+!.clangd
