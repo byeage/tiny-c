@@ -145,6 +145,8 @@ int main() {
 
     putchar('\n');
 
+    printf("    ");
+
     for (int n = 0; n < 5; n++) {
       for (int j = 0; j < COLUMNS; j++) {
         printgap(j);
